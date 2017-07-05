@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index11</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            $.ajax({
+                type: "GET",
+                url: "https://jsonplaceholder.typicode.com/posts",
+                dataType: "json",
+
+                success: function (objData) {
+                    console.log(objData );
+                    for(var i in objData) {
+                        $(document.body).append("<p>"+ objData[i].userId + "</p>");
+                        $(document.body).append("<p>"+ objData[i].id + "</p>");
+                        $(document.body).append("<p>"+ objData[i].title + "</p>");
+                        $(document.body).append("<p>"+ objData[i].body + "</p><hr>");
+                        console.log(i  + objData[i]);
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
